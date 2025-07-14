@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
-
+/* "DM Sans"  */
 @theme {
-  --default-font-family: "DM Sans" "Poppins", serif;
+  --default-font-family: "Poppins", serif;
 
   --color-orange-base: #F24D0D;
   --color-orange-dark: #C43C08;
@@ -23,6 +23,8 @@
 
   --color-danger: #DC3545;
   --color-success: #28A745;
+
+  --text-xxs: 0.625rem;
  
   
 }

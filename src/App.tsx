@@ -1,14 +1,10 @@
+import { AuthProvider } from "./contexts/AuthContext";
+import { Routes } from "./routes";
 
-
-function App() {
-  
-
+export function App(){
   return (
-    <>
-      <h1>Marketplace</h1>
-       
-    </>
+    <AuthProvider >
+      <Routes />
+    </AuthProvider>
   )
 }
-
-export default App
