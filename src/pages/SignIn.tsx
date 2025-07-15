@@ -60,6 +60,13 @@ export function SignIn() {
       action={formAction}
       className="w-full flex flex-col gap-4 px-[80px] py-[72px]"
     >
+      {/* Título e Subtítulo */}
+      <div className="mb-6 ">
+        <h1 className="font-bold text-gray-500">Acesse sua Conta</h1>
+
+        <p className="text-xxs mb-2 text-gray-300">Informe seu e-mail e senha para entrar</p>
+      </div>
+
       <Input
         name="email"
         required
@@ -86,20 +93,17 @@ export function SignIn() {
         Acessar
       </Button>
 
-      {/* Div empurrada para o final com mt-auto */}
-
-      <p className="text-sm text-gray-200 mt-30">Ainda não tem uma conta?</p>
+      <p className="text-sm text-gray-200 mt-22">Ainda não tem uma conta?</p>
       <Button
-       onClick={handleRedirect}
-        type="submit"
+        onClick={handleRedirect}
+        type="button"
         isLoading={isLoading}
         className="bg-white border border-orange-base rounded-lg text-orange-base cursor-pointer hover:bg-orange-950 transition ease-linear disabled:opacity-50"
       >
         Cadastrar
       </Button>
-
-
     </form>
+
 
   )
 }
