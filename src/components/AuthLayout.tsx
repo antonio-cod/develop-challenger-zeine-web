@@ -35,12 +35,7 @@ export function AuthLayout() {
         </div>
 
         {/* Área principal (formulário) */}
-        <main className="bg-white p-8 rounded-3xl flex items-center flex-col w-[563px] h-[720px]">
-
-          <h1 className="bold text-gray-500">Acesse sua Conta</h1>
-
-          <p className="text-xxs mb-2 text-gray-300">Informe seu e-mail e senha para entrar</p>
-
+        <main className="bg-white p-8 rounded-3xl flex items-center flex-col w-[563px] h-auto">
 
 
           <Outlet />
