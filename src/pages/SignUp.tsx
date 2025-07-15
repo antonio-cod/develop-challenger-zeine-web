@@ -18,6 +18,14 @@ const signUpSchema = z.object({
   email: z.email({ message: "E-mail inválido" }),
   password: z.string().min(6, { message: "Senha deve conter no minimo de 6 caracteres" }),
   passwordConfirm: z.string({ message: "Confirme a senha" }),
+  filename: z.string(),
+  phone: z
+    .string()
+    .trim()
+    .min(9, { message: "Telefone deve ter no mínimo 8 dígitos" })
+    .max(11, { message: "Telefone deve ter no máximo 10 dígitos" })
+    .regex(/^\d+$/, { message: "Telefone deve conter apenas números" })
+
 })
   .refine((data) => data.password === data.passwordConfirm, {
     message: "As senhas não são iguais",
@@ -29,6 +37,8 @@ export function SignUp() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [passwordConfirm, setPasswordConfirm] = useState("")
+  const [filename, setFileName] = useState("")
+  const [phone, setPhone] = useState("")
   const [isLoading, setIsLoading] = useState(false)
 
   const navigate = useNavigate()
@@ -44,6 +54,8 @@ export function SignUp() {
         email,
         password,
         passwordConfirm,
+        filename,
+        phone
       })
 
       await api.post("/users", data)
@@ -94,7 +106,7 @@ export function SignUp() {
         legend="NOME"
         type="name"
         placeholder="Seu nome completo"
-        // onChange={(e) => setName(e.target.value)}
+        onChange={(e) => setName(e.target.value)}
         icon={user}
       />
 
@@ -104,7 +116,7 @@ export function SignUp() {
         legend="TELEFONE"
         type="telefone"
         placeholder="(00) 0000-0000"
-        // onChange={(e) => setPhone(e.target.value)}
+        onChange={(e) => setPhone(e.target.value)}
         icon={call}
       />
 
@@ -116,6 +128,7 @@ export function SignUp() {
         legend="E-MAIL"
         type="email"
         placeholder="Seu e-mail de acesso"
+        onChange={(e) => setEmail(e.target.value)}
         icon={envelope}
       />
 
@@ -125,6 +138,7 @@ export function SignUp() {
         legend="SENHA"
         type="password"
         placeholder="Senha de acesso"
+        onChange={(e) => setPassword(e.target.value)}
         icon={key}
       />
 
@@ -134,6 +148,7 @@ export function SignUp() {
         legend="CONFIRMAR SENHA"
         type="password"
         placeholder="Confirme a senha"
+        onChange={(e) => setPasswordConfirm(e.target.value)}
         icon={key}
       />
 

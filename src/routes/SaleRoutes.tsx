@@ -5,10 +5,9 @@ import { AppLayout } from "../components/AppLayout";
 
 export function SaleRoutes(){
   return (
-    <Routes>
+    <Routes> 
       <Route path="/" element={<AppLayout />}>
-       
-       
+      
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
